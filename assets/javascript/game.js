@@ -10,7 +10,11 @@ reset();
 
 document.onkeydown = function(event) {
   var guess = event.key;
+
+  // had to put this up here so that it would show the guess as soon as it was pressed.
   guesses.push(guess);
+  
+
   if (guess === letterToGuess) {
     reset();
     winsCounter++;
@@ -23,7 +27,7 @@ document.onkeydown = function(event) {
     	losses.innerHTML = lossesCounter;
   } else {
     guessesLeft--;
-    var left = document.getElementById("guessesLeft")
+    var left = document.getElementById("guessesLeft");
     	left.innerHTML = guessesLeft;
     var guessed = document.getElementById("guesses");
     	guessed.innerHTML = guesses;
