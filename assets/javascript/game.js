@@ -7,23 +7,26 @@ var letterToGuess = letters[Math.floor(Math.random() * letters.length)];
 
 reset();
 
+
 document.onkeydown = function(event) {
   var guess = event.key;
+  guesses.push(guess);
   if (guess === letterToGuess) {
     reset();
     winsCounter++;
     var wins = document.getElementById("wins");
-    wins.innerHTML = winsCounter;
+    	wins.innerHTML = winsCounter;
   } else if (guessesLeft - 1 === 0) {
     reset();
     lossesCounter++;
     var losses = document.getElementById("losses");
-    losses.innerHTML = lossesCounter;
+    	losses.innerHTML = lossesCounter;
   } else {
     guessesLeft--;
+    var left = document.getElementById("guessesLeft")
+    	left.innerHTML = guessesLeft;
     var guessed = document.getElementById("guesses");
-    guessed.innerHTML = guesses;
-    guesses.push(guess);
+    	guessed.innerHTML = guesses;
   }
 }
 
